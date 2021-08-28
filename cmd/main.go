@@ -10,10 +10,13 @@ import (
 func main() {
 	fmt.Println("Hello welcome to loan comparator!")
 
+	// setup all the routes
 	http.Handle("/", router.Router())
 
-	// start the http server on port 3000 and pass the chi router as handler
-	http.ListenAndServe(":3000", nil)
+	//setup postgress
+	connectionString :=
+		// start the http server on port 3000 and pass the chi router as handler
+		http.ListenAndServe(":3000", nil)
 
 }
 
