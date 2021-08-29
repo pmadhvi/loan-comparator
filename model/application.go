@@ -11,8 +11,7 @@ type Application struct {
 	Status    string    `json:"status"`
 }
 
-type Job struct {
-	ID            uuid.UUID `json:"id"`
-	ApplicationID uuid.UUID `json:"application_id"`
-	Status        string    `json:"status"`
+type ApplicationRequest struct {
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
 }
