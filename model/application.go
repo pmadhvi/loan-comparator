@@ -12,6 +12,7 @@ type Application struct {
 }
 
 type ApplicationRequest struct {
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
+	ID        uuid.UUID `json:"id"`
+	FirstName string    `json:"first_name"`
+	LastName  string    `json:"last_name"`
 }

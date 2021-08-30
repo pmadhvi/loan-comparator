@@ -32,8 +32,8 @@ func main() {
 
 	//setup repositories
 	var (
-		applicationRepo = postgres.ApplicationRepository{Log: *log, Db: db}
-		jobRepo         = postgres.JobRepository{Log: *log, Db: db}
+		applicationRepo = postgres.NewApplicationRepository(*log, db)
+		jobRepo         = postgres.NewJobRepository(*log, db)
 
 		//setup services
 		applicationService = service.ApplicationService{ApplicationRepository: applicationRepo}
@@ -53,10 +53,3 @@ func main() {
 	http.ListenAndServe(":3000", nil)
 
 }
-
-// func ApplicationCtx(next http.Handler) http.Handler {
-// 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-// 		ctx := context.WithValue(r.Context(), "uuid", uuid.UUID)
-// 		next.ServeHTTP(w, r.WithContext(ctx))
-// 	})
-// }
